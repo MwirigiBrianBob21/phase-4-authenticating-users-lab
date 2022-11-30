@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 # Save the user's ID to the session hash
 # Return the user as a JSON object
     def create
-        user = User.find_by(username: params)
+        user = User.find_by(username: params[:username])
         if user
             session[:user_id]= user.id
             render json: user
